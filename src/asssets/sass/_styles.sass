@@ -1,0 +1,59 @@
+body
+	+theme(white)
+	background-color: $light
+	background-repeat: no-repeat
+	background-size: 100vmax
+	background-position: center -5vmax 
+	font-family: $ffText, $ffBack
+
+
+a
+	font-family: inherit
+	&:hover, &:focus, &:active, &:focus-visible
+		outline: none
+		appearance: none
+		box-shadow: none
+
+img
+	max-width: 100%
+
+.page
+	&__wrapper
+		overflow: hidden
+	&__content
+		padding-top: var(--gapSection)
+		padding-bottom: var(--gapSection)
+	&__single
+		padding-top: var(--gapSection)
+		padding-bottom: var(--gapSection)
+		
+		h1
+			+ft(55, 55*1.3, 800)
+		h2, h3, h4, h5, h6
+			margin-top: var(--gap4)
+			margin-bottom: var(--gap2)
+			text-transform: uppercase
+			+ft(22, 22*1.3, 800)
+		a
+			text-decoration: underline
+			transition: $trs
+			&:hover
+				text-decoration: none
+		+maw($sm)
+			h1
+				+ft(27, 27*1.3, 800)
+			
+
+.container
+	position: relative
+
+	+maw($sm)
+		padding-left: $gap3
+		padding-right: $gap3
+
+.section
+	position: relative
+	margin-top: var(--gapSection)
+	margin-bottom: var(--gapSection)
+	z-index: 1
+	

@@ -1,0 +1,86 @@
+@import '../../asssets/sass/vars'
+
+.logo
+    +ft(28, 28, 200)
+    text-transform: capitalize
+    b
+        color: $primary
+
+.navbar
+    padding: $gap1
+    &-container
+        +flex(flex, center, space-between, nowrap)
+    &-menu
+        +flex(flex, center, center, nowrap)
+        gap: 2em
+        +ft(18, 18, 500)
+        a
+            transition: $trs
+            &:hover, &:active, &:focus
+                color: $main
+                box-shadow: 0 2px 0 0 $main
+    &-btns
+        +flex(flex, center, center, nowrap)
+        gap: $gap2
+    &-toggle
+        cursor: pointer
+        +flex(flex, center, center, nowrap)
+        +sz(40px, 40px)
+        padding: 5px
+        border: 2px solid $main
+        background: $main
+    +miw($lg)
+        &-toggle
+            display: none
+    +maw($lg)
+        &-toggle
+            display: flex
+        &-menu
+            display: none
+    +maw($sm)
+        .btn
+            display: none
+
+
+.drawer
+    +ps(fixed)
+    inset: 0
+    z-index: 100500
+    +theme(dark)
+    padding: $gap4
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    transform: translateX(-100%)
+    visibility: hidden
+    max-width: 500px
+    transition: $trs
+    .btn
+        margin-top: auto
+    &-show
+        height: auto
+        visibility: visible
+        transform: translateX(0)
+    &-header
+        +flex(flex, center, space-between, nowrap)
+        margin-bottom: $gap4
+        button
+            margin-left: auto
+    &-menu
+        display: flex
+        flex-direction: column
+        gap: $gap3
+        text-transform: uppercase
+        +ft(20, 20, 700)
+        a
+            transition: $trs
+            &:hover, &:focus, &:active
+                color: $main
+                box-shadow: 0 2px 0 0 $main
+    +miw($lg)
+        display: none
+    +miw($sm)
+        .navbar-toggle
+            display: none
+       
+
