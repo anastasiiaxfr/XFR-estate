@@ -57,3 +57,18 @@ img
 	margin-bottom: var(--gapSection)
 	z-index: 1
 	
+.bg
+	position: relative
+	z-index: 1
+	+theme(dark)
+	background-image: url(../img/hero.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: 0 0
+	&::after
+		content: ''
+		position: absolute
+		inset: 0
+		z-index: -1
+		+sz(100%, 100%)
+		background: rgba($black, 0.3)

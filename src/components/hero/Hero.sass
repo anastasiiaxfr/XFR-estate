@@ -1,0 +1,70 @@
+@import '../../assets/sass/vars'
+
+.hero
+    margin: 0
+    padding-top: var(--gapSection)
+    padding-bottom: var(--gapSection)
+    //+theme(dark)
+    text-align: center
+
+    .btns
+        margin-top: $gap4
+        margin-bottom: $gap4
+
+.filters
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    justify-content: center
+    margin-top: $gap4
+
+    .filter
+        &-item
+            position: relative
+            +theme(white)
+            border: 1px solid $black
+            text-align: left
+        &-content
+            padding: $gap2
+            cursor: pointer
+            text-transform: uppercase
+            label
+                display: block
+                +ft(16, 16, 700)
+                margin-bottom: $gap1
+        &-desc
+            +flex(flex, center, flex-start, nowrap)
+            gap: $gap1
+            +ft(12, 12, 500)
+            user-select: none
+        &-cta
+            +flex(flex, center, center, nowrap)
+            padding: $gap2
+            +theme(main)
+            button
+                +sz(100%, 100%)
+                color: inherit
+                background: none
+                border: none
+                cursor: pointer
+                +ft(16, 16, 700)
+        &-options
+            position: absolute
+            left: 0
+            z-index: 1
+            +theme(white)
+            box-shadow: 0 2px 0 0 $main
+            padding: $gap2 $gap4
+            width: 100%
+        &-option
+            display: block
+            cursor: pointer
+            transition: $trs
+            user-select: none
+            margin: $gap2 0
+            &:hover
+                color: $main
+           
+    +maw($md)
+        grid-template-columns: 1fr 1fr  
+    +maw($sm)
+        grid-template-columns: 1fr     

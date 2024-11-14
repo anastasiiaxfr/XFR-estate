@@ -1,4 +1,4 @@
-import './asssets/sass/main.sass';
+import './assets/sass/main.sass';
 import Home from './pages/Home';
 
 function App() {

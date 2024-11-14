@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './Navbar.sass'
 
-import iconMenu from '../../asssets/img/menuIcon.png'
-import iconClose from '../../asssets/img/closeIcon.png'
+import iconMenu from '../../assets/img/menuIcon.png'
+import iconClose from '../../assets/img/closeIcon.png'
 
 const menu = [
     { url: '/', label: 'Home'},

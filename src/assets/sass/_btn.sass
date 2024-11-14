@@ -18,7 +18,8 @@
 		outline: none
 		box-shadow: none
 		color: $white
-		background-color: darken($main, 2%)
+		background-color: $primary
+		border-color: $primary
 
 	&s
 		+flex(inline-flex, center, center, nowrap)
@@ -34,6 +35,15 @@
 		&:hover, &:active, &:focus
 			color: $main
 			background-color: transparent
+	&-light
+		@extend .btn
+		border-color: $white
+		background-color: $white
+		color: $main
+		&:hover, &:active, &:focus
+			border-color: $primary
+			background-color: $primary
+			color: $white
 			
 	+maw($xs)
 		font-size: 16px
