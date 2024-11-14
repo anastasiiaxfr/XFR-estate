@@ -1,6 +1,8 @@
 @import '../../assets/sass/vars'
 
 .hero
+    position: relative
+    z-index: 10
     margin: 0
     padding-top: var(--gapSection)
     padding-bottom: var(--gapSection)
@@ -53,7 +55,7 @@
         &-options
             position: absolute
             left: 0
-            z-index: 1
+            z-index: 10
             +theme(white)
             box-shadow: 0 2px 0 0 $main
             padding: $gap2 $gap4

@@ -7,8 +7,15 @@ import { FaLocationDot } from "react-icons/fa6";
 import { LuBedDouble } from "react-icons/lu";
 import { PiBathtub } from "react-icons/pi";
 import { BiArea } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 export const Properties = () => {
+
+    const navigate = useNavigate()
+    const handleNavigation = (id) => {
+        navigate(`/properties/${id}`)
+    }
+
     return (
         <div>
             <div className="bg">
@@ -37,7 +44,7 @@ export const Properties = () => {
                 <main className="">
                     <div className="cards">
                         {properties.map((property) => (
-                            <article key={property.id} className="card">
+                            <article key={property.id} className="card" onClick={() => handleNavigation(property.id)}>
                                 <div className="card-img">
                                 <div className="card-title">
                                         {property.title}

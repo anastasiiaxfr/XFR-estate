@@ -14,7 +14,7 @@ const menu = [
 ];
 
 
-const Navbar = () => {
+const Navbar = ({bg}) => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const toggleMenu = () => {
@@ -23,7 +23,7 @@ const Navbar = () => {
 
     return (
         <>
-            <header className="navbar">
+            <header className="navbar" style={{ background: bg }}>
                 <div className="navbar-container container">
                     <a href="/" className="logo">
                         <b>Xforeal</b> estate

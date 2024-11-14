@@ -1,0 +1,57 @@
+@import '../../assets/sass/vars'
+
+.property
+    padding: $gap4 
+    margin: $gap4 auto
+    //+theme(white)
+    &-heading
+        margin-top: 0
+
+.property-details
+    +flex(flex, center, space-between, wrap)
+    margin-top: $gap4
+    margin-bottom: $gap4
+    padding-bottom: $gap4
+    border-bottom: 1px solid $main
+
+.property-rooms
+    +flex(flex, center, space-between, wrap)
+    gap: $gap2
+    & > div
+        +flex(flex, center, space-between, wrap)
+        gap: $gap2
+        +ft(18, 18, 700)
+        svg
+            color: $main
+
+.property-image
+    display: grid
+    grid-template-columns: 2fr 1fr
+    gap: $gap1
+    &-demo
+        img
+            display: block
+            height: 100%
+            object-fit: cover
+    &-thumb
+        display: grid
+        gap: $gap2
+        img
+            display: block
+
+
+.amenities
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: $gap4
+    margin-top: $gap4
+    +maw($md)
+        grid-template-columns: 1fr
+    
+.amenity
+    +flex(flex, center, flex-start, wrap)
+    gap: $gap2
+    +ft(18, 18, 500)
+    svg
+        color: $main
+
