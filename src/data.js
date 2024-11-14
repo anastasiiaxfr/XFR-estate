@@ -22,7 +22,6 @@ import { LuPalmtree, LuParkingSquare } from "react-icons/lu";
 import { PiSecurityCamera } from "react-icons/pi";
 import { CgGym } from "react-icons/cg";
 
-
 export const properties = [
   {
     id: 1,
@@ -162,34 +161,31 @@ export const filterOptions = [
   {
     id: 1,
     title: "property type",
-    options: ["residential", "commercial", "land", "industrial"],
+    name: "type",
+    options: ["apartment", "office", "villa"],
   },
-  {
-    id: 2,
-    title: "price limit",
-    options: [
-      "$1000",
-      "$50,000",
-      "$100,000",
-      "$250,000",
-      "$500,000",
-      "$500,000+",
-    ],
-  },
+  // {
+  //   id: 2,
+  //   title: "price limit",
+  //   options: ["$50,000", "$100,000", "$250,000", "$500,000", "$500,001+"],
+  // },
   {
     id: 3,
     title: "Bedrooms",
-    options: ["1 Bedroom", "2 Bedrooms", "3 Bedrooms", "3 Bedrooms+"],
+    name: "bedrooms",
+    options: ["1 Bedroom", "2 Bedrooms", "3 Bedrooms", ">4 Bedrooms"],
   },
   {
     id: 4,
     title: "Bathrooms",
-    options: ["1 Bathroom", "2 Bathrooms", "3 Bathrooms", "3 Bathrooms+"],
+    name: "bathrooms",
+    options: ["1 Bathroom", "2 Bathrooms", "3 Bathrooms", ">4 Bathrooms"],
   },
   {
     id: 5,
     title: "Area Size (sqm)",
-    options: ["100 (sqm)", "150 (sqm)", "175 (sqm)", "200 (sqm)", "200+ (sqm)"],
+    name: "size",
+    options: ["<100 (sqm)", ">100 (sqm)", ">200 (sqm)", ">400 (sqm)"],
   },
 ];
 

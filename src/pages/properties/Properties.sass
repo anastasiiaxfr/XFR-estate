@@ -7,10 +7,54 @@
     gap: $gap4
     padding-top: $gap4
     padding-bottom: $gap4
+    +maw($lg)
+        grid-template-columns: 1fr
+
+.sidebar
+    position: relative
+
+.filter
+    &-container
+        width: 100%
+        margin-top: 1em
+        transition: $trs
+        button
+            position: absolute
+            right: 10px
+            top: 10px
+        &.open
+            display: block
+            transform: translateX(0)
+            visibility: visible
+    &-title
+        +flex(flex, center, flex-start, nowrap)
+        gap: $gap2
+        margin-bottom: 0
+        user-select: none
+        cursor: pointer
+        h2
+            margin: 0
+        svg
+            +theme(main)
+            +sz(40px, 40px)
+            padding: 10px
+    +maw($lg)
+        &-container
+            display: none
+            position: fixed
+            inset: 0
+            z-index: 10
+            margin: 0
+            padding: $gap4
+            +theme(white)
+            transform: translateX(-100%)
+            visibility: hidden
+            overflow: hidden
+            overflow-y: scroll
 
 .cards
     display: grid
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
     gap: $gap4
     width: 100%
 
@@ -89,6 +133,9 @@
         gap: $gap1
         +ft(15, 15, 500)
         margin-top: $gap1
+        user-select: none
+        cursor: pointer
     &-title
         text-transform: capitalize
         margin-bottom: $gap2
+
