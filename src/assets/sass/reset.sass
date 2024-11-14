@@ -25,6 +25,7 @@ body
 	box-sizing: border-box
 	&::selection
 		background-color: $main
+		color: $white
 		
 
 
@@ -38,7 +39,7 @@ a
 img
 	user-select: none
 
-button, a, input 
+button, a, input:not([type=checkbox]) 
 	&:hover, &:active, &:focus
 		appearance: none
 		outline: none

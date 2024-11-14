@@ -1,11 +1,10 @@
-import React from 'react';
 import Navbar from '../components/navbar/Navbar';
 import Hero from '../components/hero/Hero';
 
 const Home = () => {
   return (
     <div>
-        <div className="bg">
+        <div className="bg" style={{"height": "100vh"}}>
             <Navbar />
             <Hero />
         </div>

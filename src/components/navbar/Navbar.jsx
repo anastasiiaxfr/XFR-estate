@@ -7,7 +7,7 @@ import iconClose from '../../assets/img/closeIcon.png'
 const menu = [
     { url: '/', label: 'Home'},
     { url: '/', label: 'About'},
-    { url: '/', label: 'Properties'},
+    { url: '/properties', label: 'Properties'},
     { url: '/', label: 'Agents'},
     { url: '/', label: 'Blog'},
     { url: '/', label: 'Contacts'},

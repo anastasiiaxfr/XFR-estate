@@ -1,0 +1,94 @@
+@import '../../assets/sass/vars'
+
+
+.page
+    display: grid
+    grid-template-columns: 0.5fr 2fr
+    gap: $gap4
+    padding-top: $gap4
+    padding-bottom: $gap4
+
+.cards
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+    gap: $gap4
+    width: 100%
+
+    .card
+        +theme(white)
+        +ft(14, 14, 500)
+        transition: $trs
+        &:hover
+            box-shadow: $bxsd
+        &-title
+            display: inline-flex
+            padding: $gap1
+            border-radius: 2px
+            border: 2px solid $main
+            +theme(main)
+            text-transform: uppercase
+            +ft(12, 12, 700)
+            margin-bottom: $gap2
+            position: absolute
+            top: 10px
+            left: 10px
+            z-index: 1
+        &-type
+            margin-bottom: $gap2
+            text-transform: uppercase
+            +ft(18, 18, 700)
+        &-header
+            +flex(flex, center, flex-start, wrap)
+            gap: $gap1
+        &-rooms
+            display: grid
+            grid-template-columns: repeat(3, 1fr)
+            gap: $gap1
+            margin-top: $gap2
+            padding-top: $gap2
+            border-top: 1px solid $main
+            div
+                +flex(flex, center, flex-start, nowrap)
+                gap: $gap1
+                white-space: nowrap
+        &-address
+            +flex(flex, center, flex-start, nowrap)
+            gap: $gap1
+        &-price
+            color: $main
+            +ft(30, 30, 700)
+            margin-bottom: $gap2
+        &-icon
+            color: $main
+        &-content
+            padding: $gap4
+        &-img
+            position: relative
+            padding-top: 50%
+
+            & > img
+                position: absolute
+                inset: 0
+                +sz(100%, 100%)
+    +maw($sm)
+        grid-template-columns: 1fr
+        .card
+            &-content
+                padding: $gap2
+            &-price
+                font-size: 1.2em
+            &-rooms
+                grid-template-columns: 1fr
+     
+           
+
+.filter-section
+    margin-bottom: $gap4
+    label
+        display: flex
+        gap: $gap1
+        +ft(15, 15, 500)
+        margin-top: $gap1
+    &-title
+        text-transform: capitalize
+        margin-bottom: $gap2

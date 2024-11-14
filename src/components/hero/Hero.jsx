@@ -3,6 +3,7 @@ import './Hero.sass'
 import { filterOptions } from '../../data'
 import { FaChevronCircleDown } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 
 function Hero() {
     const [activeBtn, setActiveBtn] = useState("buy");
@@ -11,21 +12,17 @@ function Hero() {
         filterOptions.map((filter) => filter.options[0])
     );
     
-    // Create refs to track clicks outside the filter options
     const filterRefs = useRef([]);
 
     useEffect(() => {
-        // Event listener to detect clicks outside filter
         const handleClickOutside = (event) => {
             if (filterRefs.current.every((ref) => ref && !ref.contains(event.target))) {
-                setOpenFilter(null); // Close all filters if clicked outside
+                setOpenFilter(null); 
             }
         };
 
-        // Add event listener to document
         document.addEventListener("mousedown", handleClickOutside);
 
-        // Clean up the event listener on component unmount
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
@@ -44,6 +41,11 @@ function Hero() {
         updateOptions[filterIndex] = option;
         setSelectedOptions(updateOptions);
         setOpenFilter(null);
+    }
+
+    const navigate = useNavigate()
+    const handleNavigate = () => {
+        navigate('/properties');
     }
 
     return (
@@ -102,7 +104,7 @@ function Hero() {
                             </div>
                         ))}
 
-                        <div className="filter-cta">
+                        <div className="filter-cta" onClick={() => handleNavigate()}>
                             <button className=""> Search </button>
                         </div>
 
