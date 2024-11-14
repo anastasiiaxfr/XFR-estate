@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./Properties.sass";
 import Navbar from "../../components/navbar/Navbar";
 import Hero from "../../components/hero/Hero";
@@ -10,11 +11,34 @@ import { BiArea } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 
 export const Properties = () => {
-
-    const navigate = useNavigate()
+    const [filteredData, setFilteredData] = useState(properties);
+    
+    const navigate = useNavigate();
     const handleNavigation = (id) => {
-        navigate(`/properties/${id}`)
-    }
+        navigate(`/properties/${id}`);
+    };
+
+    const handleCheckboxChange = (category, val, isChecked) => {
+        let choosenVal;
+
+        if(val === "3 Bedrooms+" || val === "3 Bathrooms+" || val === "200+ (sqm)"){
+            choosenVal = parseInt(val) + 1
+        } else choosenVal = parseInt(val)
+
+        // Filter properties based on selected category and value
+        let filteredProperties = properties.filter((property) => {
+            if (category === "bedrooms") {
+                return choosenVal > 3 ? property.bedrooms > choosenVal : property.bedrooms === choosenVal;
+            } else if (category === "bathrooms") {
+                return choosenVal > 3 ? property.bathrooms > choosenVal : property.bathrooms === choosenVal;
+            } else if (category === "areaSize") {
+                return choosenVal > 200 ? property.size > choosenVal : property.size === choosenVal;
+            }
+            return true;
+        });
+
+        setFilteredData(filteredProperties);
+    };
 
     return (
         <div>
@@ -33,7 +57,17 @@ export const Properties = () => {
                             <div className="filter-section-wrapper">
                                 {filter.options.map((option) => (
                                     <label key={option}>
-                                        <input type="checkbox" />
+                                        <input
+                                            type="radio"
+                                            name={filter.title.toLowerCase()}
+                                            onChange={(e) =>
+                                                handleCheckboxChange(
+                                                    filter.title.toLowerCase(),
+                                                    option,
+                                                    e.target.checked
+                                                )
+                                            }
+                                        />
                                         <span>{option}</span>
                                     </label>
                                 ))}
@@ -43,12 +77,14 @@ export const Properties = () => {
                 </aside>
                 <main className="">
                     <div className="cards">
-                        {properties.map((property) => (
-                            <article key={property.id} className="card" onClick={() => handleNavigation(property.id)}>
+                        {filteredData.map((property) => (
+                            <article
+                                key={property.id}
+                                className="card"
+                                onClick={() => handleNavigation(property.id)}
+                            >
                                 <div className="card-img">
-                                <div className="card-title">
-                                        {property.title}
-                                    </div>
+                                    <div className="card-title">{property.title}</div>
                                     <img
                                         src={property.image}
                                         alt={property.title}
@@ -57,9 +93,8 @@ export const Properties = () => {
 
                                 <div className="card-content">
                                     <div className="card-header">
-                                   
-                                    <div className="card-type">{property.type}</div>
-                                    </div> 
+                                        <div className="card-type">{property.type}</div>
+                                    </div>
                                     <div className="card-price">{property.price}</div>
                                     <div className="card-address">
                                         <FaLocationDot className="card-icon" />
